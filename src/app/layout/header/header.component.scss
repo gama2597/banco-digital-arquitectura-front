@@ -1,0 +1,55 @@
+/* Logo cuadrado con gradiente */
+.header-logo {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+.header-logo-icon {
+  color: #ffffff;
+  font-size: 1.4rem;
+  opacity: 1;
+  /* por si tienes algún .pi con opacity global */
+}
+
+/* Avatar redondo */
+.header-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.header-avatar:hover {
+  background: #e5e7eb;
+}
+
+.header-avatar-icon {
+  color: #111827;
+  font-size: 1.3rem;
+  opacity: 1;
+}
+
+/* Circulito de estado (online) */
+.header-avatar-status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: #22c55e;
+  /* verde bien visible */
+  border: 2px solid #ffffff;
+}

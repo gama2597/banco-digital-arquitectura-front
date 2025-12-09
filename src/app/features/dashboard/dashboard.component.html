@@ -1,0 +1,164 @@
+<div class="flex flex-column gap-5 md:gap-6">
+
+  <!-- HERO + BUSCADOR -->
+  <section class="relative bg-white border-round-3xl shadow-card overflow-hidden p-5 md:p-7 lg:p-8">
+    <!-- blobs decorativos -->
+    <div class="absolute -right-10 top-0 w-30rem h-30rem bg-blue-100 border-circle opacity-40 blur-3xl"></div>
+    <div class="absolute -left-10 bottom-0 w-24rem h-24rem bg-indigo-100 border-circle opacity-40 blur-3xl"></div>
+
+    <div class="relative z-1 grid hero-grid align-items-center">
+      <!-- Texto -->
+      <div class="col-12 md:col-6">
+        <div class="chip-soft bg-indigo-50 text-indigo-600 mb-3">
+          <i class="pi pi-star-fill text-xs"></i>
+          Experiencia Premium
+        </div>
+
+        <h1 class="text-3xl md:text-5xl font-extrabold text-900 mb-3 tracking-tight">
+          Tu dinero, <span class="text-gradient">sin límites.</span>
+        </h1>
+
+        <p class="text-gray-600 text-sm md:text-base line-height-3 mb-4 max-w-20rem md:max-w-none">
+          Encuentra cuentas, clientes y realiza transferencias en segundos.
+          Todo en una interfaz clara, sin ruido y pensada para el día a día.
+        </p>
+
+        <div class="flex flex-wrap gap-2 text-xs text-gray-500">
+          <div class="flex align-items-center gap-1">
+            <i class="pi pi-shield text-green-500"></i> Seguridad reforzada
+          </div>
+          <div class="flex align-items-center gap-1">
+            <i class="pi pi-stopwatch"></i> Búsquedas en tiempo real
+          </div>
+        </div>
+      </div>
+
+      <!-- Buscador -->
+      <div class="col-12 md:col-6">
+        <div
+          class="flex flex-column gap-3 p-3 md:p-4 bg-white/90 backdrop-blur-sm border-1 border-gray-100 border-round-2xl shadow-card">
+          <p-selectButton [options]="searchOptions" [ngModel]="searchType()" (ngModelChange)="searchType.set($event)"
+            optionLabel="label" optionValue="value" styleClass="w-full text-sm">
+          </p-selectButton>
+
+          <div class="flex flex-column gap-2">
+            <!-- <div class="flex gap-2">
+              <input pInputText [(ngModel)]="searchText"
+                [placeholder]="searchType() === 'CLIENTE' ? 'Ej: Juan Pérez o CLI001...' : 'Ej: CTA001...'"
+                class="w-full text-base shadow-none border-round-xl" (keydown.enter)="search()" />
+              <button pButton icon="pi pi-search"
+                class="w-4rem flex justify-content-center border-round-xl btn-primary-glow" (click)="search()"
+                [loading]="loading()">
+              </button>
+            </div> -->
+            <div class="flex gap-2">
+              <input pInputText [(ngModel)]="searchText"
+                [placeholder]="searchType() === 'CLIENTE' ? 'Ej: Juan Pérez o CLI001...' : 'Ej: CTA001...'"
+                class="w-full text-base shadow-none border-round-xl" (keydown.enter)="search()" />
+
+              <button pButton icon="pi pi-search"
+                class="w-4rem flex justify-content-center border-round-xl btn-primary-glow" (click)="search()"
+                [loading]="loading()">
+              </button>
+
+              <button pButton icon="pi pi-times" class="p-button-text p-button-plain p-button-rounded"
+                (click)="clearSearch()" [disabled]="!searchText && accounts().length === 0" pTooltip="Limpiar búsqueda"
+                tooltipPosition="top">
+              </button>
+            </div>
+            <small class="text-xs text-gray-500">
+              Puedes buscar por <b>nombre, DNI o código</b> del cliente. Presiona <kbd>Enter</kbd> para buscar rápido.
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  @if (loading()) {
+  <div class="grid mt-3">
+    <div class="col-12 md:col-6 lg:col-4">
+      <p-skeleton height="260px" borderRadius="24px"></p-skeleton>
+    </div>
+    <div class="col-12 md:col-6 lg:col-4 hidden md:block">
+      <p-skeleton height="260px" borderRadius="24px"></p-skeleton>
+    </div>
+  </div>
+  }
+  @else if (accounts().length > 0) {
+
+  <section class="flex flex-column gap-3 mt-2">
+    <div class="flex align-items-center justify-content-between flex-wrap gap-2">
+      <div>
+        <h2 class="section-title m-0">Tus cuentas</h2>
+        <p class="section-subtitle m-0">Selecciona una cuenta para iniciar una transferencia.</p>
+      </div>
+      <span class="bg-gray-100 text-gray-700 px-3 py-1 border-round font-bold text-xs">
+        {{ accounts().length }} cuentas activas
+      </span>
+    </div>
+
+    <div class="grid">
+      @for (acc of accounts(); track acc.id) {
+      <div class="col-12 md:col-6 lg:col-4">
+        <article
+          class="group h-full relative overflow-hidden border-round-3xl p-5 flex flex-column justify-content-between text-white transition-all hover:-translate-y-2 cursor-pointer shadow-float"
+          style="background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%); min-height: 260px;">
+
+          <i class="pi pi-wifi absolute top-5 right-5 text-2xl opacity-40 rotate-90"></i>
+          <!-- <div
+            class="absolute bottom-0 right-0 w-15rem h-15rem bg-white opacity-5 border-circle blur-2xl translate-x-50 translate-y-50">
+          </div> -->
+          <div
+            class="absolute -bottom-12 -right-12 w-40 h-40 rounded-full bg-white/10 blur-3xl -z-10 pointer-events-none">
+          </div>
+
+          <div class="relative z-1">
+            <div class="flex align-items-center gap-2 mb-2 opacity-90">
+              <i class="pi pi-credit-card"></i>
+              <span class="text-xs font-bold tracking-widest uppercase">Cuenta Débito</span>
+            </div>
+            <span class="text-xs text-blue-100 block mb-1">Saldo disponible</span>
+            <div class="text-4xl md:text-5xl font-bold tracking-tight mb-3">
+              {{ acc.saldo | currency:'PEN':'symbol':'1.2-2' }}
+            </div>
+            <span class="text-xs text-blue-100 block mb-1">
+              Actualizado al {{ today | date:'dd/MM/yyyy HH:mm' }}
+            </span>
+          </div>
+
+          <div
+            class="relative z-1 pt-4 border-top-1 border-white-alpha-20 flex align-items-end justify-content-between gap-3">
+            <div>
+              <div class="font-mono text-sm md:text-base tracking-wider opacity-95">
+                {{ acc.numeroCuenta }}
+              </div>
+              <div class="text-xs opacity-70">Titular: {{ acc.clienteId }}</div>
+            </div>
+            <!-- <button pButton icon="pi pi-arrow-right"
+              class="p-button-rounded bg-white text-blue-700 border-none w-3rem h-3rem shadow-lg hover:scale-110 transition-transform"
+              [routerLink]="['/transfer']" [queryParams]="{ from: acc.id }">
+            </button> -->
+            <button type="button" class="card-transfer-btn" [routerLink]="['/transfer']"
+              [queryParams]="{ from: acc.id }" pTooltip="Transferir desde esta cuenta" tooltipPosition="top">
+              <i class="pi pi-arrow-right"></i>
+            </button>
+
+          </div>
+        </article>
+      </div>
+      }
+    </div>
+  </section>
+  }
+  @else {
+  <section class="text-center py-8 opacity-70">
+    <i class="pi pi-inbox text-6xl text-gray-300 mb-3"></i>
+    <p class="text-xl font-medium m-0 mb-1">Sin resultados por ahora.</p>
+    <p class="text-sm text-gray-500 m-0">
+      Prueba buscando por otro cliente o código de cuenta.
+    </p>
+  </section>
+  }
+</div>

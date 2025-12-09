@@ -1,0 +1,98 @@
+<div class="flex justify-content-center pb-8">
+  <div class="w-full md:w-9 lg:w-7">
+
+    <a routerLink="/dashboard"
+      class="inline-flex align-items-center gap-2 text-600 hover:text-900 no-underline font-medium mb-4 transition-colors">
+      <i class="pi pi-arrow-left"></i> Volver al dashboard
+    </a>
+
+    <div class="surface-card p-5 md:p-6 border-round-3xl shadow-card border-1 border-gray-200">
+      <!-- Encabezado -->
+      <div class="text-center mb-6">
+        <div
+          class="inline-flex align-items-center justify-content-center bg-blue-50 text-blue-600 border-circle w-4rem h-4rem mb-3">
+          <i class="pi pi-send text-2xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-900 m-0 mb-2">Transferir fondos</h2>
+        <p class="text-gray-500 text-sm md:text-base m-0">
+          Completa los datos de la cuenta de origen, destino y el monto a enviar.
+        </p>
+      </div>
+
+      <div class="flex flex-column gap-5">
+
+        <!-- Origen / Destino -->
+        <div class="grid">
+          <div class="col-12 md:col-6 mb-3 md:mb-0">
+            <div class="border-1 border-gray-300 border-round-xl p-3 bg-gray-50 h-full">
+              <label class="field-label mb-2 block">Cuenta origen</label>
+              <div class="p-inputgroup input-clean">
+                <span class="p-inputgroup-addon bg-transparent border-none">
+                  <i class="pi pi-arrow-up-right text-red-400"></i>
+                </span>
+                <input pInputText [(ngModel)]="data.sourceAccountId" placeholder="ID cuenta origen"
+                  class="w-full font-bold text-lg" />
+              </div>
+              <small class="text-xs text-gray-500">
+                Puedes pegar el ID de la cuenta o usar el acceso rápido desde el dashboard.
+              </small>
+            </div>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <div class="border-1 border-gray-300 border-round-xl p-3 bg-white h-full">
+              <label class="field-label mb-2 block">Cuenta destino</label>
+              <div class="p-inputgroup input-clean">
+                <span class="p-inputgroup-addon bg-transparent border-none">
+                  <i class="pi pi-arrow-down-left text-green-400"></i>
+                </span>
+                <input pInputText [(ngModel)]="data.targetAccountNumber" placeholder="Nro cuenta destino"
+                  class="w-full font-bold text-lg" />
+              </div>
+              <small class="text-xs text-gray-500">
+                Verifica bien los últimos 4 dígitos antes de confirmar.
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Monto -->
+        <div class="text-center">
+          <label class="field-label mb-2 block text-center">Monto a enviar</label>
+          <p-inputNumber [(ngModel)]="data.amount" mode="currency" currency="PEN" locale="es-PE" [min]="0"
+            placeholder="S/ 0.00" styleClass="w-full"
+            inputStyleClass="w-full text-center text-5xl font-extrabold py-4 border-none bg-transparent text-blue-600 shadow-none">
+          </p-inputNumber>
+
+          <div class="flex flex-column md:flex-row align-items-center justify-content-center gap-2 mt-2">
+            <div
+              class="text-xs text-orange-600 font-medium bg-orange-50 py-1 px-3 border-round inline-flex align-items-center gap-1">
+              <i class="pi pi-info-circle text-xs"></i>
+              + S/ 5.00 comisión fija
+            </div>
+            <div class="text-xs text-gray-500">
+              Total aproximado: <b>{{ (data.amount || 0) + 5 | currency:'PEN':'symbol':'1.2-2' }}</b>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nota -->
+        <div>
+          <label class="field-label mb-1 block">Nota (opcional)</label>
+          <textarea pInputTextarea [(ngModel)]="data.description" rows="2"
+            placeholder="Ej: Pago de servicios, préstamo, etc." class="w-full text-sm"></textarea>
+        </div>
+
+        <!-- Botón -->
+        <button pButton label="Confirmar envío" icon="pi pi-check" class="w-full py-3 text-lg shadow-3 btn-primary-glow"
+          (click)="send()" [loading]="loading()">
+        </button>
+
+        <div class="flex align-items-center gap-2 text-xs text-gray-400">
+          <i class="pi pi-lock"></i>
+          <span>Esta operación es irreversible. Revisa bien los datos antes de confirmar.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

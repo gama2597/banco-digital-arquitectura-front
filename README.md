@@ -1,27 +1,57 @@
-# BancoDigitalFront
+# 🏦 Banco Digital - Frontend (Angular 18)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+![Angular](https://img.shields.io/badge/Angular-18-red?style=flat-square) ![PrimeNG](https://img.shields.io/badge/UI-PrimeNG-blue?style=flat-square) ![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue?style=flat-square)
 
-## Development server
+Interfaz de usuario moderna y responsiva para el sistema de **Banco Digital**. Este proyecto consume la API REST desarrollada en Spring Boot (Arquitectura Hexagonal).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Características
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* **Dashboard Interactivo:** Visualización de saldo y búsqueda inteligente de clientes.
+* **Gestión de Cuentas:** Apertura de nuevas cuentas para clientes existentes.
+* **Transferencias:** Sistema de envío de dinero con validación de saldos y comisiones.
+* **Búsqueda Avanzada:** Localización de productos por Nombre, DNI o ID de Cliente.
+* **UX/UI:** Diseño intuitivo utilizando componentes de **PrimeNG**.
 
-## Build
+## 🛠️ Stack Tecnológico
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* **Framework:** Angular 18 (Standalone Components).
+* **Estilos:** PrimeNG 17 + PrimeFlex.
+* **Estado:** Signals (Nueva API reactiva de Angular).
+* **Control de Flujo:** Nueva sintaxis `@if`, `@for`.
+* **Conexión:** RxJS & HttpClient.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ⚙️ Configuración del Proyecto
 
-## Running end-to-end tests
+### Prerrequisitos
+* Node.js (v18 o superior).
+* Angular CLI (`npm install -g @angular/cli`).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Instalación
+1.  Clonar el repositorio:
+    ```bash
+    git clone https://github.com/gama2597/banco-digital-arquitectura-front.git
+    ```
+2.  Instalar dependencias:
+    ```bash
+    npm install
+    ```
 
-## Further help
+### Ejecución
+Para iniciar el servidor de desarrollo:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm run start
+
+---
+
+## 👨‍💻 Autor
+
+**Nombre:** Gabriel Antonio Macavilca Almanza \
+**Curso:** Arquitectura de Software\
+**Institución:** Tecsup\
+**Año:** 2025
+---

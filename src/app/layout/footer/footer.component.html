@@ -1,0 +1,58 @@
+<!-- footer.component.html -->
+<footer class="mt-auto bg-gray-900 text-gray-100 border-top-1 border-gray-800">
+  <div class="max-w-7xl mx-auto px-6 pt-8 pb-6">
+    <div class="grid grid-nogutter pb-6 mb-6 border-bottom-1 border-gray-800">
+      <div class="col-12 md:col-5 mb-4 md:mb-0">
+        <div class="flex align-items-center gap-2 mb-3">
+          <i class="pi pi-bolt text-indigo-400 text-2xl"></i>
+          <span class="text-2xl font-bold">Banco Digital</span>
+        </div>
+        <p class="text-gray-300 text-sm md:text-base line-height-3 m-0 mb-3">
+          Gestiona tus cuentas, transfiere y controla tus finanzas desde un solo lugar,
+          de forma simple y segura.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mt-3">
+          <span class="chip-soft bg-green-500/10 text-green-300">
+            <i class="pi pi-shield"></i> Seguro hasta S/ 100,000
+          </span>
+          <span class="chip-soft bg-blue-500/10 text-blue-300">
+            <i class="pi pi-mobile"></i> 100% digital
+          </span>
+        </div>
+      </div>
+
+      <div class="col-6 md:col-3 mb-4 md:mb-0">
+        <h4 class="text-gray-100 font-bold mb-3 text-sm">Producto</h4>
+        <div class="flex flex-column gap-2 text-gray-300 text-sm">
+          <span class="hover:text-white cursor-pointer transition-colors">Cuentas de Ahorro</span>
+          <span class="hover:text-white cursor-pointer transition-colors">Transferencias</span>
+          <span class="hover:text-white cursor-pointer transition-colors">Seguridad</span>
+        </div>
+      </div>
+
+      <div class="col-6 md:col-4">
+        <h4 class="text-gray-100 font-bold mb-3 text-sm">Soporte</h4>
+        <div class="flex flex-column gap-2 text-gray-300 text-sm mb-3">
+          <span class="hover:text-white cursor-pointer transition-colors">Centro de Ayuda</span>
+          <span class="hover:text-white cursor-pointer transition-colors">Contacto</span>
+          <span class="hover:text-white cursor-pointer transition-colors">Preguntas Frecuentes</span>
+        </div>
+        <div class="flex align-items-center gap-2 text-xs text-gray-400">
+          <i class="pi pi-clock"></i>
+          <span>Atención 24/7 para operaciones críticas</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-column md:flex-row justify-content-between align-items-center text-xs md:text-sm text-gray-500 gap-3">
+      <span>© {{ today | date:'yyyy' }} Banco Digital. Todos los derechos reservados.</span>
+      <div class="flex gap-4">
+        <i class="pi pi-twitter hover:text-white cursor-pointer transition-colors text-lg"></i>
+        <i class="pi pi-instagram hover:text-white cursor-pointer transition-colors text-lg"></i>
+        <i class="pi pi-linkedin hover:text-white cursor-pointer transition-colors text-lg"></i>
+      </div>
+    </div>
+  </div>
+</footer>
