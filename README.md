@@ -45,10 +45,9 @@ Para iniciar el servidor de desarrollo:
 
 ```bash
 npm run start
+```
 
----
-
-## 👨‍💻 Autor
+### 👨‍💻 Autor
 
 **Nombre:** Gabriel Antonio Macavilca Almanza \
 **Curso:** Arquitectura de Software\
