@@ -2,17 +2,17 @@
 
 ![Angular](https://img.shields.io/badge/Angular-18-red?style=flat-square) ![PrimeNG](https://img.shields.io/badge/UI-PrimeNG-blue?style=flat-square) ![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue?style=flat-square)
 
-Interfaz de usuario moderna y responsiva para el sistema de **Banco Digital**. Este proyecto consume la API REST desarrollada en Spring Boot (Arquitectura Hexagonal).
+Interfaz de usuario moderna y responsiva para el sistema de **Banco Digital**. Este proyecto consume la API REST desarrollada en Spring Boot bajo los principios de **Arquitectura Hexagonal**.
 
 ---
 
 ## 🚀 Características
 
-* **Dashboard Interactivo:** Visualización de saldo y búsqueda inteligente de clientes.
+* **Dashboard Interactivo:** Visualización de saldo en tiempo real y búsqueda inteligente.
 * **Gestión de Cuentas:** Apertura de nuevas cuentas para clientes existentes.
-* **Transferencias:** Sistema de envío de dinero con validación de saldos y comisiones.
+* **Transferencias:** Sistema de envío de dinero con validación de saldos y cálculo de comisiones.
 * **Búsqueda Avanzada:** Localización de productos por Nombre, DNI o ID de Cliente.
-* **UX/UI:** Diseño intuitivo utilizando componentes de **PrimeNG**.
+* **UX/UI Premium:** Diseño intuitivo, limpio y profesional utilizando componentes de **PrimeNG**.
 
 ## 🛠️ Stack Tecnológico
 
@@ -27,23 +27,32 @@ Interfaz de usuario moderna y responsiva para el sistema de **Banco Digital**. E
 ## ⚙️ Configuración del Proyecto
 
 ### Prerrequisitos
-* Node.js (v18 o superior).
-* Angular CLI (`npm install -g @angular/cli`).
+* **Node.js:** v18 o superior.
+* **Angular CLI:** (`npm install -g @angular/cli`).
 
 ### Instalación
+
 1.  Clonar el repositorio:
     ```bash
-    git clone https://github.com/gama2597/banco-digital-arquitectura-front.git
+    git clone [https://github.com/gama2597/banco-digital-arquitectura-front.git](https://github.com/gama2597/banco-digital-arquitectura-front.git)
     ```
-2.  Instalar dependencias:
+
+2.  Entrar a la carpeta del proyecto:
+    ```bash
+    cd banco-digital-arquitectura-front
+    ```
+
+3.  Instalar las dependencias:
     ```bash
     npm install
     ```
 
 ### Ejecución
+
 Para iniciar el servidor de desarrollo:
 
 ```bash
+npm run start
 npm run start
 ```
 
